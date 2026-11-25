@@ -1,6 +1,13 @@
 from django.urls import path
 
-from .views import *
+from .views import (
+    carrinho,
+    checkout,
+    homepage,
+    login,
+    loja,
+    minha_conta,
+)
 
 urlpatterns = [
     path("", homepage, name="homepage"),

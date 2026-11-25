@@ -5,4 +5,13 @@
 
 <h1>loja</h1>
 
+
+{% for produto in produtos %}
+
+    <img src="{{ produto.imagem.url }}" alt="imagem do produto" width="300" height="450">
+    <p>produto: {{ produto.nome }}</p>
+    <p>preço: {{ produto.preco }}</p>
+
+{% endfor %}
+
 {% endblock %}

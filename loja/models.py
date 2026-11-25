@@ -31,7 +31,7 @@ class Tipo(models.Model):
 
 
 class Produto(models.Model):
-    imagem = models.CharField(max_length=200, null=True, blank=True)
+    imagem = models.ImageField(upload_to="images/", null=True, blank=True)
     nome = models.CharField(max_length=200, null=True, blank=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
     ativo = models.BooleanField(default=True)
@@ -41,6 +41,7 @@ class Produto(models.Model):
     tipo = models.ForeignKey(Tipo, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        # return f"{self.nome}, Categoria: {self.categoria}, Tipo: {self.tipo}, Preço: {self.preco}"
         return self.nome
 
 
