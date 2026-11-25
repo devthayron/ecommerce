@@ -12,13 +12,22 @@ class Cliente(models.Model):
         User, null=True, blank=True, on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        return self.nome
+
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=200, null=True, blank=True)
 
+    def __str__(self):
+        return self.nome
+
 
 class Tipo(models.Model):
     nome = models.CharField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return self.nome
 
 
 class Produto(models.Model):
@@ -31,6 +40,9 @@ class Produto(models.Model):
     )
     tipo = models.ForeignKey(Tipo, null=True, blank=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return self.nome
+
 
 class ItemEstoque(models.Model):
     produto = models.ForeignKey(
@@ -39,6 +51,9 @@ class ItemEstoque(models.Model):
     cor = models.CharField(max_length=200, null=True, blank=True)
     tamanho = models.CharField(max_length=200, null=True, blank=True)
     quantidade = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.produto
 
 
 class Endereco(models.Model):
